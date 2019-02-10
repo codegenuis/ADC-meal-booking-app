@@ -24,6 +24,19 @@ h1,h2,h3,h4,h5,h6 {
 img {
   max-width: 100%;
 }
+.btn {
+  border: 0;
+  padding: 10px;
+  width: 100px;
+  color: #fff;
+  font-family: 'Open Sans';
+}
+.btn-primary {
+  background: red;
+}
+.btn-secondary {
+  background: #ec6b12
+}
 .nav {
   box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
 }
@@ -47,6 +60,17 @@ img {
   grid-gap: 1em;
   margin: 4em 0;
   grid-auto-rows: minmax(30px,auto);
+}
+.meal-manage {
+  display: grid;
+  grid-template-columns : 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+.meal-manage .fas {
+  color: #ec6b12;
+  font-size: 20px;
 }
 .body-header {
   grid-column: 1/5;
@@ -78,16 +102,6 @@ img {
   height: 33px;
   color: #fff;
 }
-.btn {
-  border: 0;
-  padding: 10px;
-  width: 100px;
-  color: #fff;
-  font-family: 'Open Sans';
-}
-.btn-primary {
-  background: red;
-}
 .auth-form {
   width: 500px;
   margin: 0 auto;
@@ -112,6 +126,9 @@ img {
   grid-gap: 20px;
   border: 1px solid #ccc;
   padding: 20px;
+}
+.fas {
+  padding-right: 10px;
 }
 /* hover classes */
 .menu:hover {

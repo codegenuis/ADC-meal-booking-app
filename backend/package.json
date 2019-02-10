@@ -1,0 +1,27 @@
+{
+  "name": "bukam-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codegenuis/ADC-meal-booking-app.git"
+  },
+  "author": "charles osegi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codegenuis/ADC-meal-booking-app/issues"
+  },
+  "homepage": "https://github.com/codegenuis/ADC-meal-booking-app#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
