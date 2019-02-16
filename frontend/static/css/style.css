@@ -2,6 +2,10 @@
 * {
   box-sizing: border-box;
 }
+a {
+  text-decoration: transparent;
+  color: inherit
+}
 body {
   color: #000;
   margin:0;
@@ -27,9 +31,10 @@ img {
 .btn {
   border: 0;
   padding: 10px;
-  width: 100px;
+  width: 175px;
   color: #fff;
   font-family: 'Open Sans';
+  cursor: pointer;
 }
 .btn-primary {
   background: red;
@@ -49,6 +54,7 @@ img {
   display: grid;
   justify-items: end;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
 }
 .container{
   max-width: 1260px;
@@ -68,9 +74,9 @@ img {
   margin-top: 30px;
   padding: 15px;
 }
-.meal-manage .fas {
+.fas {
   color: #ec6b12;
-  font-size: 20px;
+  font-size: 16px;
 }
 .body-header {
   grid-column: 1/5;
@@ -84,6 +90,18 @@ img {
   grid-gap: 1em;
   padding: 20px;
 
+}
+.order-summary {
+  background: #fff;
+  margin-top: 4em;
+  padding: 1em;
+}
+.order-list {
+  grid-column: 2/3;
+  padding: 20px;
+}
+.order {
+  margin-top: 20px;
 }
 .restaurants, .menu {
   border: 1px solid #ccc;
@@ -133,4 +151,51 @@ img {
 /* hover classes */
 .menu:hover {
   border: 1px solid red;
+}
+/* modal */
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.order-modal-body {
+  display: grid;
+  grid-template-columns: 2fr 3fr
+}
+
+.color-success {
+  color: #0ece28 !important;
 }
