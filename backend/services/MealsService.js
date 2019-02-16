@@ -1,32 +1,9 @@
 import Meals from '../models/Meals';
+import dummyData from '../utils/dummyData';
 
 export default class MealsService {
   fetchAllMeals() {
-    // This is the data we will have in our database
-    this.meals = [
-      {
-        id: 1,
-        name: 'Jollof Rice',
-        size: 'plates',
-        price: '500',
-        currency: 'NGN',
-      },
-      {
-        id: 2,
-        name: 'Fried Rice',
-        size: 'plates',
-        price: '500',
-        currency: 'NGN',
-      },
-      {
-        id: 3,
-        name: 'Coconut Rice',
-        size: 'plates',
-        price: '500',
-        currency: 'NGN',
-      },
-    ];
-
+    this.meals = dummyData.meals;
     // When we retrieve the data, it will be of type Meals
     // Hence, this simulation here.
     return this.meals.map((data) => {
