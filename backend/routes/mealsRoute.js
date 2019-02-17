@@ -20,4 +20,7 @@ router.post('/add', (req, res) => {
   });
 });
 
+router.put('/edit/:id', (req, res) => {
+  res.send(mealsService.editMeal(req.body, req.params.id)).status(200);
+});
 export default router;

@@ -37,4 +37,13 @@ export default class MealsService {
     return this.meals;
   }
 
+  editMeal(meal, id) {
+    id = Number(id);
+    const updatedMeal = this.meals.find(data => data.id === id);
+    updatedMeal.name = meal.name;
+    updatedMeal.price = meal.price;
+    updatedMeal.size = meal.size;
+    updatedMeal.currency = meal.currency;
+    return this.meals;
+  }
 }
