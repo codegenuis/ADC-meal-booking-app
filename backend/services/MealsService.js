@@ -46,4 +46,14 @@ export default class MealsService {
     updatedMeal.currency = meal.currency;
     return this.meals;
   }
+
+  deleteMeal(id) {
+    id = Number(id);
+    const deleteMeal = this.meals.find(meal => meal.id === id);
+    const index = this.meals.indexOf(deleteMeal);
+    if (index > -1) {
+      this.meals.splice(index, 1);
+    }
+    return this.meals;
+  }
 }
