@@ -1,9 +1,13 @@
+/* eslint-disable no-param-reassign */
 import Meals from '../models/Meals';
 import dummyData from '../utils/dummyData';
 
 export default class MealsService {
-  fetchAllMeals() {
+  constructor() {
     this.meals = dummyData.meals;
+  }
+
+  fetchAllMeals() {
     // When we retrieve the data, it will be of type Meals
     // Hence, this simulation here.
     return this.meals.map((data) => {
@@ -27,4 +31,10 @@ export default class MealsService {
     // -1 because we have our data in an array which starts at 0
     return this.fetchAllMeals()[id - 1];
   }
+
+  addMeal(meal) {
+    this.meals.push(meal);
+    return this.meals;
+  }
+
 }

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/codegenuis/ADC-meal-booking-app#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
   "devDependencies": {
