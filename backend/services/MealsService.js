@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import Meals from '../models/Meals';
 import dummyData from '../utils/dummyData';
 
@@ -38,8 +37,7 @@ export default class MealsService {
   }
 
   editMeal(meal, id) {
-    id = Number(id);
-    const updatedMeal = this.meals.find(data => data.id === id);
+    const updatedMeal = this.meals.find(data => data.id === Number(id));
     updatedMeal.name = meal.name;
     updatedMeal.price = meal.price;
     updatedMeal.size = meal.size;
@@ -48,8 +46,7 @@ export default class MealsService {
   }
 
   deleteMeal(id) {
-    id = Number(id);
-    const deleteMeal = this.meals.find(meal => meal.id === id);
+    const deleteMeal = this.meals.find(meal => meal.id === Number(id));
     const index = this.meals.indexOf(deleteMeal);
     if (index > -1) {
       this.meals.splice(index, 1);
