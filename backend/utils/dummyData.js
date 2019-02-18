@@ -22,4 +22,24 @@ export default {
       currency: 'NGN',
     },
   ],
+  orders: [
+    {
+      id: 1,
+      name: 'Charles osegi',
+      meal: [
+        {
+          name: 'Coconut Rice',
+          quantity: '2 plates',
+          price: '1000',
+          currency: 'NGN',
+        },
+        {
+          name: 'Fried Rice',
+          quantity: '1 plate',
+          price: '500',
+          currency: 'NGN',
+        },
+      ],
+    },
+  ],
 };
