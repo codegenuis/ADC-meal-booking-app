@@ -17,7 +17,7 @@ describe('Meals', () => {
       });
     });
   });
-  describe('/POST book', () => {
+  describe('/POST meal', () => {
     it('it should post a meal', (done) => {
       let meal = {
         id: 4,
@@ -52,6 +52,23 @@ describe('Meals', () => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.should.have.property('message').eql('Meal updated!');
+          done();
+        });
+    });
+  });
+  describe('/DELETE/:id meal', () => {
+    it('it should DELETE a meal given the id', (done) => {
+      let meal = new Meals({
+        id: 1,
+        name: 'Jollof Rice',
+        size: 'plates',
+        price: '500',
+        currency: 'NGN'
+      })
+        chai.request(app).delete(`/api/v1/meals/delete/1`).send(meal).end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Meal Deleted!');
           done();
         });
     });
