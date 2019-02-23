@@ -17,7 +17,11 @@ router.post('/add', (req, res) => {
 });
 
 router.put('/edit/:id', (req, res) => {
-  res.send(mealsService.editMeal(req.body, req.params.id)).status(200);
+  res.status(200);
+  res.json({
+    message: 'Meal updated!',
+    data: mealsService.editMeal(req.body, req.params.id),
+  });
 });
 
 router.delete('/delete/:id', (req, res) => {

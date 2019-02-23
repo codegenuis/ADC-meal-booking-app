@@ -42,7 +42,7 @@ export default class MealsService {
     updatedMeal.price = meal.price;
     updatedMeal.size = meal.size;
     updatedMeal.currency = meal.currency;
-    return this.meals;
+    return meal;
   }
 
   deleteMeal(id) {
