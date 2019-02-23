@@ -14,3 +14,5 @@ app.use('/api/v1/orders', ordersRoute);
 app.use('/api/v1/menu', menuRoute);
 
 app.listen(port);
+
+export default app

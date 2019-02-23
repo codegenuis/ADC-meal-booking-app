@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r esm --exit",
     "build": "babel --presets env -d lib/ src",
     "start": "nodemon --exec babel-node index"
   },
@@ -20,16 +20,22 @@
   "homepage": "https://github.com/codegenuis/ADC-meal-booking-app#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
-    "@babel/cli": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-mocha": "^5.3.0",
+    "esm": "^3.2.6",
     "nodemon": "^1.18.10"
   }
 }
