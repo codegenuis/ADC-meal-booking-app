@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
 import meals from '../utils/dummyData';
+import Meals from '../models/Meals';
 
 const should = chai.should();
 
@@ -36,6 +37,23 @@ describe('Meals', () => {
         res.body.data.should.have.property('currency');
         done();
       });
+    });
+  });
+  describe('/PUT/:id meal', () => {
+    it('it should UPDATE a meal given the id', (done) => {
+      let meal = new Meals({
+        id: 1,
+        name: 'Jollof Rice',
+        size: 'plates',
+        price: '500',
+        currency: 'NGN'
+      })
+        chai.request(app).put(`/api/v1/meals/edit/1`).send(meal).end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Meal updated!');
+          done();
+        });
     });
   });
 });
