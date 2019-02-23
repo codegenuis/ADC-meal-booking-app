@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-  res.status(201);
+  res.status(200);
   res.json({
-    message: 'new meal added',
+    message: 'Meal successfully added!',
     data: mealsService.addMeal(req.body),
   });
 });

@@ -33,7 +33,7 @@ export default class MealsService {
 
   addMeal(meal) {
     this.meals.push(meal);
-    return this.meals;
+    return meal;
   }
 
   editMeal(meal, id) {
