@@ -26,8 +26,17 @@ export default class MenuService {
     return this.fetchAllMeals();
   }
 
-  addMeal(menu) {
+  addMenu(menu) {
     this.menu.push(menu);
+    return menu;
+  }
+
+  deleteMeal(id) {
+    const deleteMeal = this.menu.find(menu => menu.id === Number(id));
+    const index = this.menu.indexOf(deleteMeal);
+    if (index > -1) {
+      this.menu.splice(index, 1);
+    }
     return this.menu;
   }
 }
