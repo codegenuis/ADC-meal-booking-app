@@ -37,5 +37,22 @@ describe('Menu', () => {
         done();
       });
     });
-  });  
+  });
+  describe('/DELETE/:id menu', () => {
+    it('it should DELETE a meal given the id', (done) => {
+      let meal = new Meals({
+        id: 1,
+        name: 'Jollof Rice',
+        size: 'plates',
+        price: '500',
+        currency: 'NGN'
+      })
+        chai.request(app).delete(`/api/v1/menu/delete/1`).send(meal).end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Menu Deleted!');
+          done();
+        });
+    });
+  });
 });
