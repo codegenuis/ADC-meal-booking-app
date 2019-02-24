@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -r esm --exit",
-    "cover": "nyc npm test && nyc report",
+    "cover": "nyc npm test && nyc report", 
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "build": "babel --presets env -d lib/ src",
     "start": "nodemon --exec babel-node index"
