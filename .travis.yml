@@ -6,11 +6,7 @@ install:
   - npm install
 script:
   - npm test
-after_success:
-  - npm run coverage
-  - npm run coveralls
-  - npm run report-coverage
-  - ./node_modules/.bin/mocha
+after_success: coveralls
 cache:
   directories:
     - backend/node_modules
