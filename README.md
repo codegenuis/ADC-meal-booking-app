@@ -14,4 +14,4 @@ To run the apis, cd to the backend folder and run npm install to install the dep
 [![Coverage Status](https://coveralls.io/repos/github/codegenuis/ADC-meal-booking-app/badge.svg?branch=develop)](https://coveralls.io/github/codegenuis/ADC-meal-booking-app?branch=develop)
 
 
-[![Build Status](https://travis-ci.org/codegenuis/ADC-meal-booking-app.svg?branch=develop)]
+[![Build Status](https://travis-ci.org/codegenuis/ADC-meal-booking-app.svg?branch=develop)](https://travis-ci.org/codegenuis/ADC-meal-booking-app)
