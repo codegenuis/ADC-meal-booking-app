@@ -26,7 +26,7 @@ export default class OrderService {
 
   addOrder(order) {
     this.orders.push(order);
-    return this.orders;
+    return order;
   }
 
   editOrder(order, id) {
@@ -35,15 +35,15 @@ export default class OrderService {
     updatedOrder.price = order.price;
     updatedOrder.quantity = order.quantity;
     updatedOrder.currency = order.currency;
-    return this.orders;
+    return order;
   }
 
   deleteOrder(id) {
     const deleteOrder = this.orders.find(order => order.id === Number(id));
-    const index = this.meals.indexOf(deleteOrder);
+    const index = this.orders.indexOf(deleteOrder);
     if (index > -1) {
-      this.order.splice(index, 1);
+      this.orders.splice(index, 1);
     }
-    return this.order;
+    return this.orders;
   }
 }
