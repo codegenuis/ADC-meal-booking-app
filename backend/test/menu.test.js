@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
 import Meals from '../models/Menu';
+import meals from '../utils/dummyData';
 
 const should = chai.should();
 
