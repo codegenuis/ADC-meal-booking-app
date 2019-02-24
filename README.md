@@ -10,5 +10,4 @@ To view the web pages, cd to the frontend folder and open any of the required/ap
 
 To run the apis, cd to the backend folder and run npm install to install the dependencies and run npm start to start the service
 
-
-[![Coverage Status](https://coveralls.io/repos/github/codegenuis/ADC-meal-booking-app/badge.svg?branch=develop)](https://coveralls.io/github/codegenuis/ADC-meal-booking-app?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/codegenuis/ADC-meal-booking-app/badge.svg)](https://coveralls.io/github/codegenuis/ADC-meal-booking-app)
