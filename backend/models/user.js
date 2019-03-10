@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: {
       type: DataTypes.STRING,
@@ -31,23 +31,23 @@ export default (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = (models) => {
-    // associations can be defined here
-    User.hasMany(models.Order, {
-      foreignKey: {
-        name: 'userId',
-        field: 'user_id',
-        onDelete: 'CASCADE',
-      },
-      as: 'user',
-    });
-    User.hasMany(models.Meal, {
-      foreignKey: {
-        name: 'userId',
-        field: 'user_id',
-        onDelete: 'CASCADE',
-      },
-    });
-  };
+  // User.associate = (models) => {
+  //   // associations can be defined here
+  //   User.hasMany(models.Order, {
+  //     foreignKey: {
+  //       name: 'userId',
+  //       field: 'user_id',
+  //       onDelete: 'CASCADE',
+  //     },
+  //     as: 'user',
+  //   });
+  //   User.hasMany(models.Meal, {
+  //     foreignKey: {
+  //       name: 'userId',
+  //       field: 'user_id',
+  //       onDelete: 'CASCADE',
+  //     },
+  //   });
+  // };
   return User;
 };

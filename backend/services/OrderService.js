@@ -1,4 +1,4 @@
-import Orders from '../models/Orders';
+import Orders from '../models';
 import dummyData from '../utils/dummyData';
 
 export default class OrderService {

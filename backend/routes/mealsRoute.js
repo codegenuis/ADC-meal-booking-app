@@ -5,7 +5,11 @@ const mealsService = new MealsService();
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.status(200).send(mealsService.getAll());
+  mealsService.getAll().then(meals => {
+    res.status(200)
+    res.json(meals)
+  })
+  .catch(error => console.log(error))
 });
 
 router.post('/add', (req, res) => {

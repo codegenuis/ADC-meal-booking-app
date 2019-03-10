@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports =  (sequelize, DataTypes) => {
   const Orders = sequelize.define('Orders', {
     name: {
       allowNull: false,

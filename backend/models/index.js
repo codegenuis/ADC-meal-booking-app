@@ -1,8 +1,6 @@
-'use strict';
-
 import fs from 'fs';
 import path from 'path';
-import sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 
 const env = process.env.NODE_ENV || 'development';
 const basename = path.basename(__filename);
