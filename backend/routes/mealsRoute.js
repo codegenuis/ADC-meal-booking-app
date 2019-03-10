@@ -5,35 +5,46 @@ const mealsService = new MealsService();
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  mealsService.getAll().then(meals => {
-    res.status(200)
-    res.json(meals)
+  mealsService.getAll().then((meals) => {
+    res.status(200);
+    res.json(meals);
   })
-  .catch(error => console.log(error))
+    .catch(error => console.log(error));
 });
 
 router.post('/add', (req, res) => {
-  res.status(200);
-  res.json({
-    message: 'Meal successfully added!',
-    data: mealsService.addMeal(req.body),
-  });
+  mealsService.addMeal(req.body).then((meal) => {
+    res.status(200);
+    res.json({
+      message: 'Meal successfully added!',
+      data: meal,
+    });
+  })
+    .catch(error => console.log(error));
 });
 
 router.put('/edit/:id', (req, res) => {
-  res.status(200);
-  res.json({
-    message: 'Meal updated!',
-    data: mealsService.editMeal(req.body, req.params.id),
-  });
+  mealsService.editMeal(req.body, req.params.id)
+    .then(([rowsUpdated, [updatedMeal]]) => {
+      res.status(200);
+      res.json({
+        message: 'Meal updated!',
+        data: updatedMeal,
+      });
+    })
+    .catch(error => console.log(error));
 });
 
 router.delete('/delete/:id', (req, res) => {
-  res.status(200);
-  res.json({
-    message: 'Meal Deleted!',
-    data: mealsService.deleteMeal(req.params.id)
-  })
+  mealsService.deleteMeal(req.params.id)
+    .then((mealDeleted) => {
+      if (mealDeleted === 1) {
+        res.status(200);
+        res.json({
+          message: 'Meal Deleted!',
+        });
+      }
+    });
 });
 
 export default router;
