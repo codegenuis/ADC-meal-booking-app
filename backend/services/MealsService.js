@@ -1,29 +1,14 @@
-import Meals from '../models/Meals';
-import dummyData from '../utils/dummyData';
+import models from '../models';
+
+const { Meals } = models
 
 export default class MealsService {
   constructor() {
-    this.meals = dummyData.meals;
-  }
-
-  fetchAllMeals() {
-    // When we retrieve the data, it will be of type Meals
-    // Hence, this simulation here.
-    return this.meals.map((data) => {
-      const meal = new Meals();
-      meal.id = data.id;
-      meal.name = data.name;
-      meal.size = data.size;
-      meal.price = data.price;
-      meal.currency = data.currency;
-      return meal;
-    });
   }
 
   getAll() {
-    // This will be a call to our ORM
-    // And some manipulations to make the data presentable.
-    return this.fetchAllMeals();
+     // Call to ORM
+     return Meals.findAll()
   }
 
   get(id) {
