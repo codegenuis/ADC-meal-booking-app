@@ -1,14 +1,13 @@
 import models from '../models';
 
-const { Meals } = models
-
 export default class MealsService {
   constructor() {
+    this.Meals = models.Meals;
   }
 
   getAll() {
-     // Call to ORM
-     return Meals.findAll()
+    // Call to ORM
+    return this.Meals.findAll();
   }
 
   get(id) {
@@ -17,25 +16,16 @@ export default class MealsService {
   }
 
   addMeal(meal) {
-    this.meals.push(meal);
-    return meal;
+    return this.Meals.create(meal);
   }
 
   editMeal(meal, id) {
-    const updatedMeal = this.meals.find(data => data.id === Number(id));
-    updatedMeal.name = meal.name;
-    updatedMeal.price = meal.price;
-    updatedMeal.size = meal.size;
-    updatedMeal.currency = meal.currency;
-    return meal;
+    return this.Meals.update(meal, { returning: true, where: { id } });
   }
 
   deleteMeal(id) {
-    const deleteMeal = this.meals.find(meal => meal.id === Number(id));
-    const index = this.meals.indexOf(deleteMeal);
-    if (index > -1) {
-      this.meals.splice(index, 1);
-    }
-    return this.meals;
+    return this.Meals.destroy({
+      where: { id },
+    });
   }
 }
