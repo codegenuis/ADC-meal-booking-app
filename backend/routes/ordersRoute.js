@@ -5,23 +5,41 @@ const ordersService = new OrderService();
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.status(200).send(ordersService.getAll());
+  ordersService.getAll()
+    .then((orders) => {
+      res.status(200);
+      res.json(orders);
+    })
+    .catch(error => console.log(error));
 });
 
 router.post('/add', (req, res) => {
-  res.status(200);
-  res.json({
-    message: 'Order successfully created!',
-    data: ordersService.addOrder(req.body),
-  });
+  ordersService.addOrder(req.body)
+    .then((order) => {
+      res.status(200);
+      res.json({
+        message: 'Order successfully added!',
+        data: order,
+      });
+    })
+    .catch(error => console.log(error));
 });
 
 router.put('/edit/:id', (req, res) => {
-  res.status(200);
-  res.json({
-    message: 'Order updated!',
-    data: ordersService.editOrder(req.body, req.params.id),
-  });
+  ordersService.editMeal(req.body, req.params.id)
+    .then(([rowsUpdated, [updatedMeal]]) => {
+      if (rowsUpdated === 1) {
+        res.status(200);
+        res.json({
+          message: 'Order updated!',
+          data: updatedMeal,
+        });
+      } else {
+        res.status(400);
+        res.json({ message: 'Order not found!' });
+      }
+    })
+    .catch(error => console.log(error));
 });
 
 
@@ -29,7 +47,6 @@ router.delete('/delete/:id', (req, res) => {
   res.status(200);
   res.json({
     message: 'Order Deleted!',
-    data: ordersService.deleteOrder(req.params.id),
   });
 });
 
