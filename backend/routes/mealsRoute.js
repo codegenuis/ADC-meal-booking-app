@@ -26,11 +26,16 @@ router.post('/add', (req, res) => {
 router.put('/edit/:id', (req, res) => {
   mealsService.editMeal(req.body, req.params.id)
     .then(([rowsUpdated, [updatedMeal]]) => {
-      res.status(200);
-      res.json({
-        message: 'Meal updated!',
-        data: updatedMeal,
-      });
+      if (rowsUpdated === 1) {
+        res.status(200);
+        res.json({
+          message: 'Meal updated!',
+          data: updatedMeal,
+        });
+      } else {
+        res.status(400);
+        res.json({ message: 'Meal not found!' });
+      }
     })
     .catch(error => console.log(error));
 });
@@ -43,6 +48,9 @@ router.delete('/delete/:id', (req, res) => {
         res.json({
           message: 'Meal Deleted!',
         });
+      } else {
+        res.status(400);
+        res.json({ message: 'Meal not found!' });
       }
     });
 });

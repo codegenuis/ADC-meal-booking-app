@@ -1,4 +1,4 @@
-module.exports =  (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Orders = sequelize.define('Orders', {
     name: {
       allowNull: false,
@@ -6,7 +6,7 @@ module.exports =  (sequelize, DataTypes) => {
     },
     meal: {
       allowNull: false,
-      type:DataTypes.ARRAY(DataTypes.JSON),
+      type: DataTypes.STRING,
     },
     totalCost: {
       allowNull: false,
@@ -14,11 +14,11 @@ module.exports =  (sequelize, DataTypes) => {
     },
     location: {
       allowNull: false,
-      type: DataTypes.TEXT
-    }
+      type: DataTypes.TEXT,
+    },
   }, {});
-  Orders.associate = function(models) {
-    // associations can be defined here
-  };
+  // Orders.associate = function (models) {
+  //   // associations can be defined here
+  // };
   return Orders;
 };
