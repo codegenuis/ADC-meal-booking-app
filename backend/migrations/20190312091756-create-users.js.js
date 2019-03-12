@@ -26,6 +26,11 @@ module.exports = {
           min: 6,
         },
       },
+      userid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+      },
       role: {
         type: Sequelize.ENUM('customer', 'caterer'),
         allowNull: false,

@@ -1,27 +1,20 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Meals', {
+    return queryInterface.createTable('menus', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      menu: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      price: {
+      menu_id: {
         allowNull: false,
-        type: Sequelize.DECIMAL,
-      },
-      currency: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      imageUrl: {
-        allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
       },
       createdAt: {
         allowNull: false,
@@ -30,10 +23,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Meals');
-  }
+  down: (queryInterface) => {
+    return queryInterface.dropTable('menus');
+  },
 };

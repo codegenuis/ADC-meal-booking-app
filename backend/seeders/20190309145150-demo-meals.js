@@ -1,12 +1,6 @@
-'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-    */
-    return queryInterface.bulkInsert('Meals', [{
+  up: (queryInterface) => {
+    return queryInterface.bulkInsert('meals', [{
       name: 'Ofada Rice',
       price: '500',
       currency: 'NGN',
@@ -22,7 +16,7 @@ module.exports = {
     }], {});
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Meals', null, {});
+  down: (queryInterface) => {
+    return queryInterface.bulkDelete('meals', null, {});
   }
 };
