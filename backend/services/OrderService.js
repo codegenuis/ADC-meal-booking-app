@@ -2,7 +2,7 @@ import models from '../models';
 
 export default class OrderService {
   constructor() {
-    this.Orders = models.Orders;
+    this.Orders = models.orders;
   }
 
   getAll() {

@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
-import meals from '../utils/dummyData';
 import Meals from '../models/Meals';
 
 const should = chai.should();
@@ -19,20 +18,19 @@ describe('Meals', () => {
   });
   describe('/POST meal', () => {
     it('it should post a meal', (done) => {
-      let meal = {
-        id: 4,
+      const meal = {
         name: 'White Rice',
-        size: 'plates',
+        imageUrl: null,
         price: '500',
-        currency: 'NGN'
-      }
+        currency: 'NGN',
+      };
       chai.request(app).post('/api/v1/meals/add').send(meal).end((err, res) => {
         res.should.have.status(200);
         res.body.should.be.a('object');
         res.body.should.have.property('message').eql('Meal successfully added!');
         res.body.data.should.have.property('id');
         res.body.data.should.have.property('name');
-        res.body.data.should.have.property('size');
+        res.body.data.should.have.property('imageUrl');
         res.body.data.should.have.property('price');
         res.body.data.should.have.property('currency');
         done();
@@ -41,36 +39,36 @@ describe('Meals', () => {
   });
   describe('/PUT/:id meal', () => {
     it('it should UPDATE a meal given the id', (done) => {
-      let meal = new Meals({
+      const meal = {
         id: 1,
         name: 'Jollof Rice',
-        size: 'plates',
+        imageUrl: null,
         price: '500',
-        currency: 'NGN'
-      })
-        chai.request(app).put(`/api/v1/meals/edit/1`).send(meal).end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Meal updated!');
-          done();
-        });
+        currency: 'NGN',
+      };
+      chai.request(app).put('/api/v1/meals/edit/1').send(meal).end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('message').eql('Meal updated!');
+        done();
+      });
     });
   });
   describe('/DELETE/:id meal', () => {
     it('it should DELETE a meal given the id', (done) => {
-      let meal = new Meals({
+      const meal = {
         id: 1,
         name: 'Jollof Rice',
-        size: 'plates',
+        imageUrl: null,
         price: '500',
-        currency: 'NGN'
-      })
-        chai.request(app).delete(`/api/v1/meals/delete/1`).send(meal).end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Meal Deleted!');
-          done();
-        });
+        currency: 'NGN',
+      };
+      chai.request(app).delete('/api/v1/meals/delete/1').send(meal).end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('message').eql('Meal Deleted!');
+        done();
+      });
     });
   });
 });

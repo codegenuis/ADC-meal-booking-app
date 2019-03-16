@@ -18,7 +18,7 @@ router.post('/add', (req, res) => {
     .then((order) => {
       res.status(200);
       res.json({
-        message: 'Order successfully added!',
+        message: 'Order successfully created!',
         data: order,
       });
     })
@@ -26,7 +26,7 @@ router.post('/add', (req, res) => {
 });
 
 router.put('/edit/:id', (req, res) => {
-  ordersService.editMeal(req.body, req.params.id)
+  ordersService.editOrder(req.body, req.params.id)
     .then(([rowsUpdated, [updatedMeal]]) => {
       if (rowsUpdated === 1) {
         res.status(200);
