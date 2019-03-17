@@ -42,7 +42,7 @@ describe('Meals', () => {
       const meal = {
         id: 1,
         name: 'Jollof Rice',
-        imageUrl: null,
+        imageUrl: 'https://res.cloudinary.com/dikaeinstein/image/upload/c_scale,q_auto:low,w_1029/v1525566673/book-a-meal/avocado-cooked-delicious-262959.jpg',
         price: '500',
         currency: 'NGN',
       };
@@ -59,7 +59,7 @@ describe('Meals', () => {
       const meal = {
         id: 1,
         name: 'Jollof Rice',
-        imageUrl: null,
+        imageUrl: 'https://res.cloudinary.com/dikaeinstein/image/upload/c_scale,q_auto:low,w_1029/v1525566673/book-a-meal/avocado-cooked-delicious-262959.jpg',
         price: '500',
         currency: 'NGN',
       };

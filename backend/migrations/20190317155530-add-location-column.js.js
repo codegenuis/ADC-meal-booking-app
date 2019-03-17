@@ -4,7 +4,7 @@ module.exports = {
       'orders',
       'location',
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         onDelete: 'CASCADE',
       },
     )

@@ -42,7 +42,7 @@ describe('Orders', () => {
         name: 'Charles osegi',
         meal: "[{name: 'Coconut Rice',quantity: '2 plates',price: '1000',currency: 'NGN',},{name: 'Fried Rice',quantity: '1 plate',price: '500',currency: 'NGN',}]",
         totalCost: '1000',
-        location: 'null',
+        location: 'ikoyi',
       };
       chai.request(app).put('/api/v1/orders/edit/1').send(order).end((err, res) => {
         res.should.have.status(200);
@@ -59,7 +59,7 @@ describe('Orders', () => {
         name: 'Charles osegi',
         meal: "[{name: 'Coconut Rice',quantity: '2 plates',price: '1000',currency: 'NGN',},{name: 'Fried Rice',quantity: '1 plate',price: '500',currency: 'NGN',}]",
         totalCost: '1000',
-        location: 'null',
+        location: 'ikoyi',
       };
       chai.request(app).delete('/api/v1/orders/delete/1').send(order).end((err, res) => {
         res.should.have.status(200);
