@@ -20,7 +20,7 @@ describe('Meals', () => {
     it('it should post a meal', (done) => {
       const meal = {
         name: 'White Rice',
-        imageUrl: null,
+        imageUrl: 'https://res.cloudinary.com/dikaeinstein/image/upload/c_scale,q_auto:low,w_1029/v1525566673/book-a-meal/avocado-cooked-delicious-262959.jpg',
         price: '500',
         currency: 'NGN',
       };
