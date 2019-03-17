@@ -1,16 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
-  const Meals = sequelize.define('Meals', {
+  const Meals = sequelize.define('meals', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
     },
     currency: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     imageUrl: {
       type: DataTypes.STRING,
@@ -21,10 +21,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     updatedAt: {
       type: DataTypes.DATE,
-    }
+    },
   }, {});
-  Meals.associate = function(models) {
-    // associations can be defined here
-  };
+  // Meals.associate = (models) => {
+  //   // associations can be defined here
+  //   Meals.belongsTo(models.Orders, {
+  //     foreignKey: {
+  //       name: 'orderId',
+  //       field: 'order_id',
+  //       onDelete: 'CASCADE',
+  //     },
+  //     as: 'user',
+  //   });
+  // };
   return Meals;
 };

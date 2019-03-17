@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.bulkInsert('Orders', [{
+  up: queryInterface => queryInterface.bulkInsert('orders', [{
     name: 'Charles osegi',
     meal: "[{name: 'Coconut Rice',quantity: '2 plates',price: '1000',currency: 'NGN'}]",
     totalCost: '1000',
@@ -8,5 +8,5 @@ module.exports = {
     location: 'Ikeja',
   }], {}),
 
-  down: (queryInterface, Sequelize) => queryInterface.bulkDelete('Orders', null, {}),
+  down: queryInterface => queryInterface.bulkDelete('orders', null, {}),
 };

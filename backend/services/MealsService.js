@@ -2,7 +2,7 @@ import models from '../models';
 
 export default class MealsService {
   constructor() {
-    this.Meals = models.Meals;
+    this.Meals = models.meals;
   }
 
   getAll() {

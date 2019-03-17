@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Orders = sequelize.define('Orders', {
+  const Orders = sequelize.define('orders', {
     name: {
       allowNull: false,
       type: DataTypes.STRING,
@@ -17,8 +17,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
   }, {});
-  // Orders.associate = function (models) {
-  //   // associations can be defined here
-  // };
+  Orders.associate = (models) => {
+    // associations can be defined here
+    Orders.belongsTo(models.users, {
+      foreignKey: {
+        name: 'userId',
+        field: 'user_id',
+        onDelete: 'CASCADE',
+      },
+      as: 'user',
+    });
+  };
   return Orders;
 };

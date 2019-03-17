@@ -1,27 +1,27 @@
-// import express from 'express';
-// import MenuService from '../services/MenuService';
+import express from 'express';
+import MenuService from '../services/MenuService';
 
-// const menuService = new MenuService();
+const menuService = new MenuService();
 
-// const router = express.Router();
-// router.get('/', (req, res) => {
-//   res.status(200).send(menuService.getAll());
-// });
+const router = express.Router();
+router.get('/', (req, res) => {
+  menuService.getAll()
+    .then((menus) => {
+      res.status(200);
+      res.json(menus);
+    })
+    .catch(error => console.log(error));
+});
 
-// router.post('/add', (req, res) => {
-//   res.status(200);
-//   res.json({
-//     message: 'Menu successfully added!',
-//     data: menuService.addMenu(req.body),
-//   });
-// });
+router.post('/add', (req, res) => {
+  menuService.addMenu(req.body)
+    .then((menu) => {
+      res.status(200);
+      res.json({
+        message: 'Menu successfully added!',
+        data: menu,
+      });
+    });
+});
 
-// router.delete('/delete/:id', (req, res) => {
-//   res.status(200);
-//   res.json({
-//     message: 'Menu Deleted!',
-//     data: menuService.deleteMeal(req.params.id)
-//   })
-// })
-
-// export default router;
+export default router;

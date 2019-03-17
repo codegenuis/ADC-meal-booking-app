@@ -4,7 +4,6 @@ import mealsRoute from './routes/mealsRoute';
 import ordersRoute from './routes/ordersRoute';
 import menuRoute from './routes/menuRoute';
 
-
 const app = express();
 const port = 8080;
 
@@ -12,8 +11,8 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/meals', mealsRoute);
 app.use('/api/v1/orders', ordersRoute);
-// app.use('/api/v1/menu', menuRoute);
+app.use('/api/v1/menus', menuRoute);
 
 app.listen(port);
 
-export default app
+export default app;
